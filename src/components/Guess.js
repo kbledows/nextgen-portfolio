@@ -16,6 +16,7 @@ export default function Guess({isGuessed, guess, word}){
                     <div className={`w-14 h-14 lg:w-16 lg:h-16 border border-gray-400 text-white uppercase font-bold flex items-center justify-center ${bgColor}`}>
                         {guess[i]}
                     </div>
+                    
                 )  
             })}
         </div>

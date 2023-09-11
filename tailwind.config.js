@@ -18,5 +18,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("daisyui"), 'prettier-plugin-tailwindcss'],
+  plugins: [require("daisyui")],
 }

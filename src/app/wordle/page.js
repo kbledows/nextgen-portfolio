@@ -6,6 +6,7 @@ import Qwerty from '../../components/Qwerty';
 import PuzzleStore from '../stores/PuzzleStore';
 import { useEffect } from 'react';
 
+
 export default observer(function Wordle() {
     const store = useLocalObservable(() => PuzzleStore)
     useEffect(() => {
@@ -29,8 +30,6 @@ export default observer(function Wordle() {
                         isGuessed={i < store.currentGuess}
                         />
                     ))}
-                    
-                    
                     <Qwerty
                     word={store.word} 
                     guess={store.guesses} 
@@ -38,7 +37,7 @@ export default observer(function Wordle() {
                     />
                 </div>
             </div>
-            <h1 >won/loss</h1>
+            <h1>won/loss</h1>
                 <p>word: {store.word}</p>
                 guesses: {JSON.stringify(store.guesses)}
         </div>

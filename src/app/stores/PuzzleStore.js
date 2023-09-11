@@ -14,6 +14,28 @@ export default {
     get lost(){
         return this.currentGuess === 6
     },
+    get allGuesses() {
+        return this.guesses.slice(0, this.currentGuess).join('').split('')
+      },
+      get exactGuesses() {
+        return (
+          this.word
+            .split('')
+            // if any guesses include this letter in this position/index
+            .filter((letter, i) => {
+              return this.guesses
+                .slice(0, this.currentGuess)
+                .map((word) => word[i])
+                .includes(letter)
+            })
+        )
+      },
+      get inexactGuesses() {
+        return this.word
+          .split('')
+          .filter((letter) => this.allGuesses.includes(letter))
+      },
+
     init() {
         // this.word = words[day] //single date
         this.word = words[Math.round(Math.random() * words.length)] //random dates
@@ -26,9 +48,9 @@ export default {
         }
       },
     handleKeyup(e) {
-    // if (this.won || this.lost) {
-    //     return
-    // }
+    if (this.won || this.lost) {
+        return
+    }
 
     if (e.key === 'Enter') {
         return this.submitGuess()
