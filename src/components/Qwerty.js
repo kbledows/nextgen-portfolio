@@ -1,41 +1,73 @@
 import { observer } from 'mobx-react-lite'
 
-export default observer(function Qwerty({isGuessed, guess, word}){
+export default observer(function Qwerty({currentGuess, guess, word}){
+    const rowOne = ['q','w','e','r','t','y','u','i','o','p'];
+    const rowTwo = ['a','s','d','f','g','h','j','k','l'];
+    const rowThree = ['z','x','c','v','b','n','m'];
+
+    let doneWords = [];
+    if (currentGuess > 0){
+        doneWords = guess.slice(0,currentGuess);
+    };
+    function getColor(letter) {
+        if (doneWords.length > 0){
+            for (let i = 0; i < doneWords.length; i++){
+                if (doneWords[i].includes(letter)){
+                    if (word.includes(letter)){
+                        for (let j = 0; j < doneWords[i].length; j++){
+                            if (word[j] == doneWords[i][j]){
+                                return "bg-[#6ca965]";
+                            }
+                        }
+                        return "bg-[#c8b653]";
+                    }
+                    else {
+                        return "bg-[#787c7f]"
+                    }
+                }
+            }
+            
+        }
+        else{
+            return "bg-[#FFFFFF]";
+        }
+      };
     return (
         <>
         <div className="h-4 text-black mt-6 lg:mt-1">
             <div className={"flex justify-center gap-1 my-1 w-full"}>
-                <kbd className="kbd kbd-sm lg:kbd-md">q</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">w</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">e</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">r</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">t</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">y</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">u</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">i</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">o</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">p</kbd>
-                </div> 
-                <div className="flex justify-center gap-1 my-1 w-full">
-                <kbd className="kbd kbd-sm lg:kbd-md">a</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">s</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">d</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">f</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">g</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">h</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">j</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">k</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">l</kbd>
-                </div> 
-                <div className="flex justify-center gap-1 my-1 w-full">
-                <kbd className="kbd kbd-sm lg:kbd-md">z</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">x</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">c</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">v</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">b</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">n</kbd>
-                <kbd className="kbd kbd-sm lg:kbd-md">m</kbd>
-            </div>
+                {new Array(rowOne.length).fill(0).map((_,i) => {
+                let bgColor = "bg-[#FFFFF]" //blue, unguessed
+                return (
+                    <div>
+                        <kbd className={`kbd kbd-sm lg:kbd-md ${getColor(rowOne[i])}`}>{rowOne[i]}</kbd>
+                    </div>
+                    
+                )  
+            })}
+            </div> 
+            <div className={"flex justify-center gap-1 my-1 w-full"}>
+                {new Array(rowTwo.length).fill(0).map((_,i) => {
+                let bgColor = "bg-[#FFFFF]" //blue, unguessed
+                return (
+                    <div>
+                        <kbd className={`kbd kbd-sm lg:kbd-md ${getColor(rowTwo[i])}`}>{rowTwo[i]}</kbd>
+                    </div>
+                    
+                )  
+            })}
+            </div> 
+            <div className={"flex justify-center gap-1 my-1 w-full"}>
+                {new Array(rowThree.length).fill(0).map((_,i) => {
+                let bgColor = "bg-[#FFFFF]" //blue, unguessed
+                return (
+                    <div>
+                        <kbd className={`kbd kbd-sm lg:kbd-md ${getColor(rowThree[i])}`}>{rowThree[i]}</kbd>
+                    </div>
+                    
+                )  
+            })}
+            </div> 
         </div>
         </>
     )

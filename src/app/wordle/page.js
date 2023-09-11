@@ -33,7 +33,7 @@ export default observer(function Wordle() {
                     <Qwerty
                     word={store.word} 
                     guess={store.guesses} 
-                    isGuessed={store.currentGuess}
+                    currentGuess={store.currentGuess}
                     />
                 </div>
             </div>
