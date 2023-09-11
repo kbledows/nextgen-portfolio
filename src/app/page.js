@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Head from 'next/head'
 import Link from 'next/link'
-import avatar from 'public/IMG_8110.jpg'
+import avatar from 'public/IMG_8110.JPG'
 import houston from 'public/houston.png'
 
 export default function Home() {
