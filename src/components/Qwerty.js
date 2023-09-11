@@ -22,7 +22,7 @@ export default observer(function Qwerty({currentGuess, guess, word}){
                         return "bg-[#c8b653]"; //yellow
                     }
                     else {
-                        return "bg-[#787c7f]"
+                        return "bg-[#787c7f]" //gray
                     }
                 }
             }
@@ -37,7 +37,6 @@ export default observer(function Qwerty({currentGuess, guess, word}){
         <div className="h-4 text-black mt-6 lg:mt-1">
             <div className={"flex justify-center gap-1 my-1 w-full"}>
                 {new Array(rowOne.length).fill(0).map((_,i) => {
-                let bgColor = "bg-[#FFFFF]" //blue, unguessed
                 return (
                     <div key = {i} >
                         <kbd className={`kbd kbd-sm lg:kbd-md ${getColor(rowOne[i])}`}>{rowOne[i]}</kbd>
@@ -48,7 +47,6 @@ export default observer(function Qwerty({currentGuess, guess, word}){
             </div> 
             <div className={"flex justify-center gap-1 my-1 w-full"}>
                 {new Array(rowTwo.length).fill(0).map((_,i) => {
-                let bgColor = "bg-[#FFFFF]" //blue, unguessed
                 return (
                     <div key = {i} >
                         <kbd className={`kbd kbd-sm lg:kbd-md ${getColor(rowTwo[i])}`}>{rowTwo[i]}</kbd>
@@ -59,7 +57,6 @@ export default observer(function Qwerty({currentGuess, guess, word}){
             </div> 
             <div className={"flex justify-center gap-1 my-1 w-full"}>
                 {new Array(rowThree.length).fill(0).map((_,i) => {
-                let bgColor = "bg-[#FFFFF]" //blue, unguessed
                 return (
                     <div key = {i} >
                         <kbd className={`kbd kbd-sm lg:kbd-md ${getColor(rowThree[i])}`}>{rowThree[i]}</kbd>
