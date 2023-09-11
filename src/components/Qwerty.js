@@ -15,11 +15,11 @@ export default observer(function Qwerty({currentGuess, guess, word}){
                 if (doneWords[i].includes(letter)){
                     if (word.includes(letter)){
                         for (let j = 0; j < doneWords[i].length; j++){
-                            if (word[j] == doneWords[i][j]){
-                                return "bg-[#6ca965]";
+                            if (word[j] === doneWords[i][j]){
+                                return "bg-[#6ca965]"; //green
                             }
                         }
-                        return "bg-[#c8b653]";
+                        return "bg-[#c8b653]"; //yellow
                     }
                     else {
                         return "bg-[#787c7f]"
@@ -39,7 +39,7 @@ export default observer(function Qwerty({currentGuess, guess, word}){
                 {new Array(rowOne.length).fill(0).map((_,i) => {
                 let bgColor = "bg-[#FFFFF]" //blue, unguessed
                 return (
-                    <div>
+                    <div key = {i} >
                         <kbd className={`kbd kbd-sm lg:kbd-md ${getColor(rowOne[i])}`}>{rowOne[i]}</kbd>
                     </div>
                     
@@ -50,7 +50,7 @@ export default observer(function Qwerty({currentGuess, guess, word}){
                 {new Array(rowTwo.length).fill(0).map((_,i) => {
                 let bgColor = "bg-[#FFFFF]" //blue, unguessed
                 return (
-                    <div>
+                    <div key = {i} >
                         <kbd className={`kbd kbd-sm lg:kbd-md ${getColor(rowTwo[i])}`}>{rowTwo[i]}</kbd>
                     </div>
                     
@@ -61,7 +61,7 @@ export default observer(function Qwerty({currentGuess, guess, word}){
                 {new Array(rowThree.length).fill(0).map((_,i) => {
                 let bgColor = "bg-[#FFFFF]" //blue, unguessed
                 return (
-                    <div>
+                    <div key = {i} >
                         <kbd className={`kbd kbd-sm lg:kbd-md ${getColor(rowThree[i])}`}>{rowThree[i]}</kbd>
                     </div>
                     

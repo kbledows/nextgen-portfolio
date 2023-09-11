@@ -21,7 +21,7 @@ export default function Home() {
             <img src="/houston.png" className="w-48 md:w-72 lg:w-96 rounded-lg shadow-2xl" />
             <div>
               <h1 className="text-xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-800 to-green-800 pb-1">Coding for Fun</h1>
-              <p className="py-6">Please enjoy a game of Konordle ! I am an avid fan of video games, and an obsession with the famous 'Wordle' has led me to create my own version. Play it by clicking the button below!</p>
+              <p className="py-6">Please enjoy a game of Konordle ! I am an avid fan of video games, and an obsession with the famous Wordle has led me to create my own version. Play it by clicking the button below!</p>
               <Link href="/wordle"><button className="btn bg-[#344E41] text-[#DAD7CD] hover:text-[#344E41] hover:border-[#588157] hover:border-2">Konordle</button></Link>
             </div>
           </div>
