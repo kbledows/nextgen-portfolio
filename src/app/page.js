@@ -7,8 +7,8 @@ import houston from 'public/houston.png'
 export default function Home() {
   return (
     <main>
-      <div className="flex min-h-screen flex-col items-center justify-between p-24">
-        <div className="hero bg-[#A3B18A] rounded-lg text-[#344E41]">
+      <div className="flex min-h-screen flex-col items-center p-24">
+        <div className="hero bg-[#A3B18A] rounded-lg text-[#344E41] max-w-7xl">
           <div className="hero-content flex-col lg:flex-row">
             <Image src={avatar} className="w-48 md:w-72 lg:w-72 rounded-lg shadow-2xl" />
             <div>
@@ -18,7 +18,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="hero bg-[#A3B18A] rounded-lg text-[#344E41] mt-7">
+        <div className="hero bg-[#A3B18A] rounded-lg text-[#344E41] mt-7 max-w-7xl">
           <div className="hero-content flex-col lg:flex-row-reverse">
             <Image src={houston} className="w-48 md:w-72 lg:w-96 rounded-lg shadow-2xl" />
             <div>
@@ -30,7 +30,7 @@ export default function Home() {
         </div>
       </div>
       <div id="test" className="flex min-h-screen flex-col items-center justify-between p-24">
-        <div className="hero bg-[#A3B18A] rounded-lg text-[#344E41]">
+        <div className="hero bg-[#A3B18A] rounded-lg text-[#344E41] max-w-7xl">
           <div className="hero-content flex-col lg:flex-row-reverse">
             <Image src={houston} className="w-48 md:w-72 lg:w-96 rounded-lg shadow-2xl" />
             <div>
