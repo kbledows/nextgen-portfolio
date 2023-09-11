@@ -13,7 +13,7 @@ export default function Home() {
             <Image src={avatar} className="w-48 md:w-72 lg:w-72 rounded-lg shadow-2xl" />
             <div>
               <h1 className="text-xl md:text-4xl lg:text-7xl font-bold">Konrad Bledowski</h1>
-              <p className="py-6">Hello 👋 my name is Konrad and welcome to my portfolio website! Please use the buttons at the top of the page to navigate my website, or simply scroll down. Thank you for visiting my website, and I hope you enjoy exploring my past projects and learning more about my skills and experience. TEST</p>
+              <p className="py-6">Hello 👋 my name is Konrad and welcome to my portfolio website! Please use the buttons at the top of the page to navigate my website, or simply scroll down. Thank you for visiting my website, and I hope you enjoy exploring my past projects and learning more about my skills and experience. TEST2</p>
               <button className="btn bg-[#344E41] text-[#DAD7CD] hover:text-[#344E41] hover:border-[#588157] hover:border-2">Get Started</button>
             </div>
           </div>
