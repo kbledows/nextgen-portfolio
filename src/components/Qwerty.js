@@ -35,31 +35,31 @@ export default observer(function Qwerty({currentGuess, guess, word}){
     return (
         <>
         <div className="h-4 text-black mt-6 lg:mt-1">
-            <div className={"flex justify-center gap-1 my-1 w-full"}>
+            <div className={"flex justify-center  lg:gap-1 lg:my-1 w-full"}>
                 {new Array(rowOne.length).fill(0).map((_,i) => {
                 return (
                     <div key = {i} >
-                        <kbd className={`kbd kbd-sm lg:kbd-md ${getColor(rowOne[i])}`}>{rowOne[i]}</kbd>
+                        <kbd className={`kbd kbd-md lg:kbd-md ${getColor(rowOne[i])}`}>{rowOne[i]}</kbd>
                     </div>
                     
                 )  
             })}
             </div> 
-            <div className={"flex justify-center gap-1 my-1 w-full"}>
+            <div className={"flex justify-center lg:gap-1 lg:my-1 w-full"}>
                 {new Array(rowTwo.length).fill(0).map((_,i) => {
                 return (
                     <div key = {i} >
-                        <kbd className={`kbd kbd-sm lg:kbd-md ${getColor(rowTwo[i])}`}>{rowTwo[i]}</kbd>
+                        <kbd className={`kbd kbd-md lg:kbd-md ${getColor(rowTwo[i])}`}>{rowTwo[i]}</kbd>
                     </div>
                     
                 )  
             })}
             </div> 
-            <div className={"flex justify-center gap-1 my-1 w-full"}>
+            <div className={"flex justify-center lg:gap-1 lg:my-1 w-full"}>
                 {new Array(rowThree.length).fill(0).map((_,i) => {
                 return (
                     <div key = {i} >
-                        <kbd className={`kbd kbd-sm lg:kbd-md ${getColor(rowThree[i])}`}>{rowThree[i]}</kbd>
+                        <kbd className={`kbd kbd-md lg:kbd-md ${getColor(rowThree[i])}`}>{rowThree[i]}</kbd>
                     </div>
                     
                 )  

@@ -21,6 +21,7 @@ export default observer(function Wordle() {
         <div className="flex flex-col">
             <div className="flex flex-row">
                 <div className="flex flex-col bg-[#344E41] h-screen w-screen items-center justify-center">
+                    <input className="lg:hidden md:hidden flex" type="text" value=""/>
                     <h1 className= "text-5xl lg:text-6xl font-bold uppercase text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-green-400">Konordle</h1>
                     {store.guesses.map((_,i) =>(
                         <Guess
