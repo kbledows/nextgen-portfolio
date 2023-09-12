@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Head from 'next/head'
 import Link from 'next/link'
 import avatar from 'public/IMG_8110.png'
-import houston from 'public/houston.png'
+import avatar2 from 'public/face-suit.png'
 import pokemon from 'public/bulbasaur.gif'
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
       <div className="flex min-h-screen flex-col items-center justify-center pt-20 px-12 lg:p-24">
         <div className="hero bg-[#A3B18A] rounded-lg text-[#344E41] max-w-7xl">
           <div className="hero-content flex-col lg:flex-row">
-            <Image src={avatar} className="w-fill md:w-72 lg:w-72 rounded-lg shadow-2xl" />
+            <Image src={avatar2} className="w-fill md:w-72 lg:w-72 rounded-lg shadow-2xl" />
             <div>
               <h1 className="text-xl md:text-4xl lg:text-7xl font-bold">Konrad Bledowski</h1>
               <p className="py-6">Hello 👋 my name is Konrad and welcome to my portfolio website! Please use the buttons at the top of the page to navigate my website, or simply scroll down. Thank you for visiting my website, and I hope you enjoy exploring my past projects and learning more about my skills and experience.</p>
