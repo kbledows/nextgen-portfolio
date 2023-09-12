@@ -2,7 +2,7 @@ export default function Guess({isGuessed, guess, word}){
     return (
         <div className="grid grid-cols-5 gap-2 my-1">
             {new Array(5).fill(0).map((_,i) => {
-                let bgColor = "bg-[#14213d]" //blue, unguessed
+                let bgColor = "bg-[#344E41]" //blue, unguessed
                 if (isGuessed === true) {
                     bgColor = 'bg-[#787c7f]'; //gray, incorrect letter
                     if (guess[i] == word[i]){ //green, correct letter & spot
