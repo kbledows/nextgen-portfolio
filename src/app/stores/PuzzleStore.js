@@ -1,4 +1,5 @@
 import words from '../wordle/words.json'
+import allowedwords from '../wordle/allowed_words.json'
 
 const date = new Date(); 
 let day= date.getDate();
@@ -43,7 +44,7 @@ export default {
         this.currentGuess = 0
     },
     submitGuess() {
-        if (words.includes(this.guesses[this.currentGuess])) {
+        if (allowedwords.includes(this.guesses[this.currentGuess])) {
           this.currentGuess += 1
         }
       },

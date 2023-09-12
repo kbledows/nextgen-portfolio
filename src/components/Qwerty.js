@@ -4,7 +4,6 @@ export default observer(function Qwerty({currentGuess, guess, word}){
     const rowOne = ['q','w','e','r','t','y','u','i','o','p'];
     const rowTwo = ['a','s','d','f','g','h','j','k','l'];
     const rowThree = ['z','x','c','v','b','n','m'];
-    let word_def = "https://www.dictionary.com/browse/";
 
     let doneWords = [];
     if (currentGuess > 0){
@@ -29,14 +28,12 @@ export default observer(function Qwerty({currentGuess, guess, word}){
             }
             
         }
-        else{
-            return "bg-[#ffffff]";
-        }
+        return "bg-[#dad7cd]";
       };
     return (
         <>
         <div className="h-4 text-black mt-6 lg:mt-1">
-            <div className={"flex justify-center  lg:gap-1 lg:my-1 w-full"}>
+            <div className={"flex justify-center  lg:gap-1 lg:my-1 w-full "}>
                 {new Array(rowOne.length).fill(0).map((_,i) => {
                 return (
                     <div key = {i} >
