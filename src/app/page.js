@@ -22,7 +22,7 @@ export default function Home() {
           <div className="hero-content flex-col lg:flex-row-reverse">
             <Image src={pokemon} className="w-56 md:w-72 lg:w-82 rounded-lg" />
             <div>
-              <h1 className="text-xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-800 to-green-800 pb-1 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Coding for Fun</h1>
+              <h1 className="text-xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-800 to-green-800 pb-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Coding for Fun</h1>
               <p className="py-6">Please enjoy a game of Konordle ! I am an avid fan of video games, and an obsession with the famous Wordle has led me to create my own version. Play it by clicking the button below!</p>
               <Link href="/wordle"><button className="btn bg-[#344E41] text-[#DAD7CD] hover:text-[#344E41] hover:border-[#588157] hover:border-2 hover:bg-[#dad7cd]">Konordle</button></Link>
             </div>
