@@ -13,7 +13,7 @@ export default observer(function Wordle() {
     useEffect(() => {
         store.init()
         window.addEventListener('keyup', store.handleKeyup)
-        
+
         return () => { //Always clean up your event listeners
             window.removeEventListener('keyup', store.handleKeyup)
         }
@@ -23,25 +23,25 @@ export default observer(function Wordle() {
         <div className="flex flex-col">
             <div className="flex flex-row">
                 <div className="flex flex-col bg-[#344E41] h-screen w-screen items-center justify-center">
-                    <input className="lg:hidden md:hidden flex" type="text" value=""/>
-                    <h1 className= "text-5xl lg:text-6xl font-bold uppercase text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-green-400">Konordle</h1>
-                    {store.guesses.map((_,i) =>(
+                    <input className="lg:hidden md:hidden flex" type="text" value="" />
+                    <h1 className="text-5xl lg:text-6xl font-bold uppercase text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-green-400">Konordle</h1>
+                    {store.guesses.map((_, i) => (
                         <Guess
-                        key = {i}
-                        word={store.word} 
-                        guess={store.guesses[i]} 
-                        isGuessed={i < store.currentGuess}
+                            key={i}
+                            word={store.word}
+                            guess={store.guesses[i]}
+                            isGuessed={i < store.currentGuess}
                         />
                     ))}
-                    {store.won && <h3 className= "text-md lg:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-green-400">You Won!</h3>}
-                    {store.lost && <h3 className= "text-md lg:text-2xl font-bold text-red-600">You Lost <a href={word_def} className="text-md lg:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-green-400">{store.word} </a></h3>}
+                    {store.won && <h3 className="text-md lg:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-green-400">You Won!</h3>}
+                    {store.lost && <h3 className="text-md lg:text-2xl font-bold text-red-600">You Lost <a href={word_def} rel="noopener noreferrer" target="_blank" className="text-md lg:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-green-400">{store.word} </a></h3>}
                     {(store.won || store.lost) && (
-                    <button onClick={store.init} className="btn bg-[#14213d] text-[#DAD7CD] hover:text-[#344E41] hover:border-[#588157] hover:border-2">Play Again</button>
+                        <button onClick={store.init} className="btn bg-[#14213d] text-[#DAD7CD] hover:text-[#344E41] hover:border-[#588157] hover:border-2">Play Again</button>
                     )}
                     <Qwerty
-                    word={store.word} 
-                    guess={store.guesses} 
-                    currentGuess={store.currentGuess}
+                        word={store.word}
+                        guess={store.guesses}
+                        currentGuess={store.currentGuess}
                     />
                 </div>
             </div>
