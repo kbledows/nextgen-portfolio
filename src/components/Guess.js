@@ -1,51 +1,5 @@
 export default function Guess({ isGuessed, guess, word, exactGuesses, inExactGuesses, currentGuess, guesses, currentWord }) {
 
-    // function getExactGuessesForThis() {
-    //     return (
-    //         word
-    //             .split('')
-    //             // if any guesses include this letter in this position/index
-    //             .filter((letter, i) => {
-    //                 return guesses
-    //                     .slice(0, currentWord)
-    //                     .map((word) => word[i])
-    //                     .includes(letter)
-    //             })
-    //     )
-    // }
-
-    // function getInExactGuessesForThis() {
-    //     return word
-    //         .split('')
-    //         .filter((letter) => guess.includes(letter))
-    // }
-
-    // function getNumLetterInExactGuesses(letter) {
-    //     let counter = 0;
-    //     for (let i = 0; i < getExactGuessesForThis().length; i++) {
-    //         if (getExactGuessesForThis()[i] == letter) {
-    //             counter += 1;
-    //         }
-    //     }
-    //     return counter;
-    // }
-
-    // function isYellow(letter) {
-    //     if (word.includes(letter)) {
-    //         if (getExactGuessesForThis().includes(letter)) {
-    //             if ((word.split(letter).length - 1) > (getNumLetterInExactGuesses(letter))) {
-    //                 return "bg-[#c8b653]"; //yellow, exists in exactGuesses and again in the word
-    //             }
-    //             else {
-
-    //                 return "bg-[#787c7f]"; //gray, exists in exactGuesses but no more in word
-    //             }
-    //         }
-    //         return "bg-[#c8b653]"; //yellow, doesnt exist in exactGuesses
-    //     }
-    //     return "bg-[#787c7f]"; //gray, doesn't exist in the word at all
-    // }
-
     function getExactGuesses() {
         let exacts = ""
         for (let i = 0; i < guess.length; i++) {

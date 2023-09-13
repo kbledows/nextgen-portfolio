@@ -11,8 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body> <Navbar />{children}<Footer /></body>
-      <Analytics />
+      <body> <Navbar />{children}<Footer /><Analytics /></body>
     </html>
 
   )
