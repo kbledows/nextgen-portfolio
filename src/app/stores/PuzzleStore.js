@@ -39,8 +39,7 @@ export default {
 
   init() {
     // this.word = words[day] //single date
-    this.word = 'loafs'; //(This breaks the game sorta, fix later)
-    // this.word = words[Math.round(Math.random() * words.length)] //random dates
+    this.word = words[Math.round(Math.random() * words.length)] //random dates
     this.guesses.replace(new Array(6).fill(''))
     this.currentGuess = 0
   },
