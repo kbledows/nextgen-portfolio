@@ -51,12 +51,12 @@ export default observer(function Wordle() {
                     />
                 </div>
             </div>
-            DEBUG MENU
+            {/* DEBUG MENU
             <p>word: {store.word}</p>
             <p>guesses: {JSON.stringify(store.guesses)}</p>
             <p>exact_guesses: {JSON.stringify(store.exactGuesses)}</p>
             <p>in_exact_guesses: {JSON.stringify(store.inexactGuesses)}</p>
-            <p>ALL_guesses: {JSON.stringify(store.allGuesses)}</p>
+            <p>ALL_guesses: {JSON.stringify(store.allGuesses)}</p> */}
 
         </div>
     )
