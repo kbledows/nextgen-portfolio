@@ -1,6 +1,7 @@
 import { observer } from 'mobx-react-lite'
 
-export default observer(function Qwerty({ currentGuess, guess, word }) {
+
+export default observer(function Qwerty({ currentGuess, guess, word, exactGuesses }) {
     const rowOne = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
     const rowTwo = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
     const rowThree = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
@@ -9,15 +10,14 @@ export default observer(function Qwerty({ currentGuess, guess, word }) {
     if (currentGuess > 0) {
         doneWords = guess.slice(0, currentGuess);
     };
+
     function getColor(letter) {
         if (doneWords.length > 0) {
             for (let i = 0; i < doneWords.length; i++) {
                 if (doneWords[i].includes(letter)) {
                     if (word.includes(letter)) {
-                        for (let j = 0; j < doneWords[i].length; j++) {
-                            if (word[j] === doneWords[i][j]) {
-                                return "bg-[#6ca965]"; //green
-                            }
+                        if (exactGuesses.includes(letter)) {
+                            return "bg-[#6ca965]";
                         }
                         return "bg-[#c8b653]"; //yellow
                     }

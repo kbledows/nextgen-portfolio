@@ -31,6 +31,11 @@ export default observer(function Wordle() {
                             word={store.word}
                             guess={store.guesses[i]}
                             isGuessed={i < store.currentGuess}
+                            exactGuesses={store.exactGuesses}
+                            inExactGuesses={store.inexactGuesses}
+                            currGuess={store.currentGuess}
+                            guesses={store.guesses}
+                            currentWord={i}
                         />
                     ))}
                     {store.won && <h3 className="text-md lg:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-green-400">You Won!</h3>}
@@ -42,11 +47,17 @@ export default observer(function Wordle() {
                         word={store.word}
                         guess={store.guesses}
                         currentGuess={store.currentGuess}
+                        exactGuesses={store.exactGuesses}
                     />
                 </div>
             </div>
-            {/* <p>word: {store.word}</p>
-            guesses: {JSON.stringify(store.guesses)} */}
+            DEBUG MENU
+            <p>word: {store.word}</p>
+            <p>guesses: {JSON.stringify(store.guesses)}</p>
+            <p>exact_guesses: {JSON.stringify(store.exactGuesses)}</p>
+            <p>in_exact_guesses: {JSON.stringify(store.inexactGuesses)}</p>
+            <p>ALL_guesses: {JSON.stringify(store.allGuesses)}</p>
+
         </div>
     )
 })
