@@ -8,6 +8,7 @@ export default {
   word: '', //guessing word
   guesses: [], //guesses
   currentGuess: 0, //current guess
+  share_txt: '',
 
   get won() {
     return this.guesses[this.currentGuess - 1] === this.word
@@ -37,11 +38,16 @@ export default {
       .filter((letter) => this.allGuesses.includes(letter))
   },
 
+  get share() {
+    return this.share_txt
+  },
+
   init() {
-    // this.word = words[day] //single date
-    this.word = words[Math.round(Math.random() * words.length)] //random dates
+    // this.word = words[day] //single word based on day
+    this.word = words[Math.round(Math.random() * words.length)] //random words
     this.guesses.replace(new Array(6).fill(''))
     this.currentGuess = 0
+    this.share_txt = ''
   },
   submitGuess() {
     if (allowedwords.includes(this.guesses[this.currentGuess])) {
@@ -67,5 +73,17 @@ export default {
       this.guesses[this.currentGuess] =
         this.guesses[this.currentGuess] + e.key.toLowerCase()
     }
+  },
+  handleBtnPress(btn) {
+    if (this.won || this.lost) {
+      return
+    }
+    if (this.guesses[this.currentGuess].length < 5) {
+      this.guesses[this.currentGuess] =
+        this.guesses[this.currentGuess] + btn.toLowerCase()
+    }
+  },
+  updateShare(letter) {
+    this.share_txt += letter
   },
 }

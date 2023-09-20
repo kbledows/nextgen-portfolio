@@ -1,7 +1,15 @@
 import { observer } from 'mobx-react-lite'
-
+import { useEffect } from 'react';
+import Link from 'next/link';
 
 export default observer(function Qwerty({ currentGuess, guess, word, exactGuesses }) {
+    useEffect(() => {
+        const element = document.querySelector('h1');
+        element.addEventListener("click", () => {
+            console.log("clicked element");
+        });
+
+    }, [])
     const rowOne = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
     const rowTwo = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
     const rowThree = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
@@ -31,39 +39,39 @@ export default observer(function Qwerty({ currentGuess, guess, word, exactGuesse
         return "bg-[#dad7cd]";
     };
     return (
-        <>
-            <div className="h-4 text-black mt-6 lg:mt-1">
-                <div className={"flex justify-center  lg:gap-1 lg:my-1 w-full "}>
-                    {new Array(rowOne.length).fill(0).map((_, i) => {
-                        return (
-                            <div key={i} >
-                                <kbd className={`kbd kbd-md lg:kbd-lg ${getColor(rowOne[i])}`}>{rowOne[i]}</kbd>
-                            </div>
+        <div className="h-4 text-black mt-6 lg:mt-1">
+            <div className={"flex justify-center  lg:gap-1 lg:my-1 w-full "}>
+                {new Array(rowOne.length).fill(0).map((_, i) => {
+                    return (
+                        <div key={i} >
+                            <kbd className={`kbd kbd-md lg:kbd-lg ${getColor(rowOne[i])}`}>{rowOne[i]}</kbd>
+                        </div>
 
-                        )
-                    })}
-                </div>
-                <div className={"flex justify-center lg:gap-1 lg:my-1 w-full"}>
-                    {new Array(rowTwo.length).fill(0).map((_, i) => {
-                        return (
-                            <div key={i} >
-                                <kbd className={`kbd kbd-md lg:kbd-lg ${getColor(rowTwo[i])}`}>{rowTwo[i]}</kbd>
-                            </div>
-
-                        )
-                    })}
-                </div>
-                <div className={"flex justify-center lg:gap-1 lg:my-1 w-full"}>
-                    {new Array(rowThree.length).fill(0).map((_, i) => {
-                        return (
-                            <div key={i} >
-                                <kbd className={`kbd kbd-md lg:kbd-lg ${getColor(rowThree[i])}`}>{rowThree[i]}</kbd>
-                            </div>
-
-                        )
-                    })}
-                </div>
+                    )
+                })}
             </div>
-        </>
+            <div className={"flex justify-center lg:gap-1 lg:my-1 w-full"}>
+                {new Array(rowTwo.length).fill(0).map((_, i) => {
+                    return (
+                        <div key={i} >
+                            <p><kbd className={`kbd kbd-md lg:kbd-lg ${getColor(rowTwo[i])}`}>{rowTwo[i]}</kbd></p>
+                        </div>
+
+                    )
+                })}
+            </div>
+            <div className={"flex justify-center lg:gap-1 lg:my-1 w-full"}>
+                {new Array(rowThree.length).fill(0).map((_, i) => {
+                    return (
+                        <div key={i} >
+                            <kbd className={`kbd kbd-md lg:kbd-lg ${getColor(rowThree[i])}`}>{rowThree[i]}</kbd>
+                        </div>
+
+                    )
+                })}
+            </div>
+        </div>
+
     )
+
 })

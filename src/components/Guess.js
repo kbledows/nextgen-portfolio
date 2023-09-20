@@ -1,5 +1,6 @@
-export default function Guess({ isGuessed, guess, word, exactGuesses, inExactGuesses, currentGuess, guesses, currentWord }) {
+import { observer } from 'mobx-react-lite'
 
+export default observer(function guess({ isGuessed, guess, word, exactGuesses, inExactGuesses, currentGuess, guesses, currentWord }) {
     function getExactGuesses() {
         let exacts = ""
         for (let i = 0; i < guess.length; i++) {
@@ -69,8 +70,9 @@ export default function Guess({ isGuessed, guess, word, exactGuesses, inExactGue
                     }
                 }
                 return (
-                    <div key={i} className={`w-14 h-14 lg:w-16 lg:h-16 border border-gray-400 text-white uppercase font-bold flex items-center justify-center ${bgColor}`}>
+                    <div id="box" key={i} className={`w-14 h-14 lg:w-16 lg:h-16 border border-gray-400 text-white uppercase font-bold flex items-center justify-center relative ${bgColor}`}>
                         {guess[i]}
+                        <input type="text" value="" className={`lg:hidden md:hidden flex w-12 h-12 opacity-0 absolute`} />
                     </div>
 
 
@@ -78,4 +80,4 @@ export default function Guess({ isGuessed, guess, word, exactGuesses, inExactGue
             })}
         </div>
     )
-}
+})

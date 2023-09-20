@@ -13,7 +13,10 @@ export default observer(function Wordle() {
     useEffect(() => {
         store.init()
         window.addEventListener('keyup', store.handleKeyup)
-
+        // const element = document.querySelector('h1');
+        // element.addEventListener("click", () => {
+        //     console.log("clicked element");
+        // });
         return () => { //Always clean up your event listeners
             window.removeEventListener('keyup', store.handleKeyup)
         }
@@ -23,7 +26,7 @@ export default observer(function Wordle() {
         <div className="flex flex-col">
             <div className="flex flex-row">
                 <div className="flex flex-col bg-[#344E41] h-screen w-screen items-center justify-center">
-                    <input className="lg:hidden md:hidden flex" type="text" value="" />
+                    {/* <input className="lg:hidden md:hidden flex" type="text" value="" /> */}
                     <h1 className="text-5xl lg:text-6xl font-bold uppercase text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-green-400">Konordle</h1>
                     {store.guesses.map((_, i) => (
                         <Guess
@@ -51,13 +54,13 @@ export default observer(function Wordle() {
                     />
                 </div>
             </div>
-            {/* DEBUG MENU
+            DEBUG MENU
+            {/* <p>{document.querySelector("kbd").textContent}</p> */}
             <p>word: {store.word}</p>
             <p>guesses: {JSON.stringify(store.guesses)}</p>
             <p>exact_guesses: {JSON.stringify(store.exactGuesses)}</p>
             <p>in_exact_guesses: {JSON.stringify(store.inexactGuesses)}</p>
-            <p>ALL_guesses: {JSON.stringify(store.allGuesses)}</p> */}
-
+            <p>ALL_guesses: {JSON.stringify(store.allGuesses)}</p>
         </div>
     )
 })
