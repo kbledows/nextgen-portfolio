@@ -10,10 +10,12 @@ const Projects = () => {
                     <div>
                         <h2 className="text-xl md:text-3xl lg:text-5xl font-bold">Projects</h2>
                         <p className="py-6">As a software engineer, I have had the opportunity to work on a wide range of projects that have allowed me to showcase my skills and expertise in developing innovative solutions for a variety of problems Some of my notable projects include: </p>
+                        <Link href="/pong">Check out Pong</Link>
                     </div>
                 </div>
             </div>
         </div>
+
     )
 }
 
