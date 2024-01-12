@@ -16,7 +16,7 @@ export default observer(function Wordle() {
         return () => { //Always clean up your event listeners
             window.removeEventListener('keyup', store.handleKeyup)
         }
-    }, [])
+    }, [store]);
     word_def += store.word;
     return (
         <div className="flex flex-col">
@@ -42,7 +42,7 @@ export default observer(function Wordle() {
                         <button onClick={store.init} className="btn bg-[#14213d] text-[#DAD7CD] hover:text-[#344E41] hover:border-[#588157] hover:border-2">Play Again</button>
                     )}
                     {(store.won || store.lost) && (store.guesses.map((_, i) => (
-                        <p>{store.colors[i]}</p>)
+                        <p className="text-sm" key={store.colors}>{store.colors[i]}</p>)
                     ))}
                     {(store.won || store.lost) && (<p>{store.currentGuess}/6 Konordle</p>)}
                     {(store.won || store.lost) && (<br></br>) && (<p>https://bledowski.vercel.app/</p>)}
