@@ -45,6 +45,11 @@ export default observer(function Wordle() {
                     {(store.won || store.lost) && (
                         <button onClick={store.init} className="btn bg-[#14213d] text-[#DAD7CD] hover:text-[#344E41] hover:border-[#588157] hover:border-2">Play Again</button>
                     )}
+                    {(store.won || store.lost) && (store.guesses.map((_, i) => (
+                        <p>{store.colors[i]}</p>)
+                    ))}
+                    {(store.won || store.lost) && (<p>{store.currentGuess}/6 Konordle</p>)}
+                    {(store.won || store.lost) && (<br></br>) && (<p>https://bledowski.vercel.app/</p>)}
                     <Qwerty
                         word={store.word}
                         guess={store.guesses}
@@ -54,12 +59,12 @@ export default observer(function Wordle() {
                 </div>
             </div>
             {/* DEBUG MENU
-            <p>{document.querySelector("kbd").textContent}</p>
             <p>word: {store.word}</p>
             <p>guesses: {JSON.stringify(store.guesses)}</p>
             <p>exact_guesses: {JSON.stringify(store.exactGuesses)}</p>
             <p>in_exact_guesses: {JSON.stringify(store.inexactGuesses)}</p>
-            <p>ALL_guesses: {JSON.stringify(store.allGuesses)}</p> */}
+            <p>ALL_guesses: {JSON.stringify(store.allGuesses)}</p>
+            <p>colors: {JSON.stringify(store.colors)}</p> */}
         </div>
     )
 })
