@@ -13,10 +13,6 @@ export default observer(function Wordle() {
     useEffect(() => {
         store.init()
         window.addEventListener('keyup', store.handleKeyup)
-        // const element = document.querySelector('h1');
-        // element.addEventListener("click", () => {
-        //     console.log("clicked element");
-        // });
         return () => { //Always clean up your event listeners
             window.removeEventListener('keyup', store.handleKeyup)
         }

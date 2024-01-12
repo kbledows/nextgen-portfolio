@@ -49,6 +49,7 @@ export default {
     // this.word = words[Math.round(Math.random() * words.length)] //random words
     this.guesses.replace(new Array(6).fill(''))
     this.currentGuess = 0
+    this.colors = []
     this.share_txt = ''
   },
   submitGuess() {
