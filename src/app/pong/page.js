@@ -81,9 +81,9 @@ const Pong = () => {
     })
     return (
         <div className="flex min-h-screen flex-col items-center justify-between pt-20 px-12 lg:p-24 bg-[#344E41]">
-            <div className="hero bg-[#A3B18A] rounded-lg text-[#344E41] max-w-3xl">
+            <div className="hero bg-[#A3B18A] rounded-lg text-[#344E41] lg:max-w-3xl">
                 <div className="hero-content flex-col lg:flex-row">
-                    <Image src={pong} className="w-fill md:w-72 lg:w-96 rounded-lg shadow-2xl" />
+                    <Image src={pong} className="w-fill w-48 md:w-64 lg:w-96 rounded-lg shadow-2xl" />
                     <div>
                         <h2 className="text-xl md:text-3xl lg:text-5xl font-bold">Ping Pong Score Keeper</h2>
                         <h3 className="text-3xl my-4 font-bold"><span className="text-[#780000]" id="p1Score">{p1Score}</span> to <span className="text-[#003049]" id="p2Score">{p2Score}</span></h3>
@@ -95,8 +95,8 @@ const Pong = () => {
                 </div>
             </div>
             <div className="flex-row content-center justify-between">
-                <button id="p1Btn" className="btn bg-[#780000] text-[#DAD7CD] hover:bg-[#c1121f] mx-5">+1 Player One</button>
-                <button id="p2Btn" className="btn bg-[#003049] text-[#DAD7CD] hover:bg-[#0077b6] mx-5">+2 Player One</button>
+                <button id="p1Btn" className="btn bg-[#780000] text-[#DAD7CD] hover:bg-[#c1121f] mx-0.5 md:mx-5 lg:mx-5">+1 Player One</button>
+                <button id="p2Btn" className="btn bg-[#003049] text-[#DAD7CD] hover:bg-[#0077b6] mx-0.5 md:mx-5 lg:mx-5">+2 Player One</button>
             </div>
             <div className="hero bg-[#A3B18A] rounded-lg text-[#344E41] max-w-2xl">
                 <div className="hero-content flex-col lg:flex-row">
