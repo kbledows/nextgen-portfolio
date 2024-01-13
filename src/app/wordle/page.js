@@ -44,14 +44,16 @@ export default observer(function Wordle() {
                     {(store.won || store.lost) && (store.guesses.map((_, i) => (
                         <p className="text-sm" key={store.colors}>{store.colors[i]}</p>)
                     ))}
-                    {(store.won || store.lost) && (<p>{store.currentGuess}/6 Konordle</p>)}
+                    {(store.won) && (<p>{store.currentGuess}/6 Konordle</p>)}
+                    {(store.lost) && (<p>X/6 Konordle</p>)}
                     {(store.won || store.lost) && (<br></br>) && (<p>https://bledowski.vercel.app/</p>)}
-                    <Qwerty
-                        word={store.word}
-                        guess={store.guesses}
-                        currentGuess={store.currentGuess}
-                        exactGuesses={store.exactGuesses}
-                    />
+                    {(!store.won && !store.lost) &&
+                        <Qwerty
+                            word={store.word}
+                            guess={store.guesses}
+                            currentGuess={store.currentGuess}
+                            exactGuesses={store.exactGuesses}
+                        />}
                 </div>
             </div>
             {/* DEBUG MENU

@@ -109,7 +109,7 @@ export default {
   color(currentWord) {
     let word_colors = ""
     for (let i = 0; i < currentWord.length; i++) {
-      let color = "🟦";
+      let color = "⬜";
       console.log(this.word);
       if (this.word.includes(currentWord[i])) {
         color = "🟨";
