@@ -12,6 +12,17 @@ export default observer(function Wordle() {
     const store = useLocalObservable(() => PuzzleStore)
     useEffect(() => {
         store.init()
+        const textboxes = document.querySelectorAll('input');
+
+        // Add an event listener to each text box
+        textboxes.forEach((textbox) => {
+            textbox.addEventListener('input', (event) => {
+                // Prevent the default behavior (auto-scrolling)
+                event.preventDefault();
+
+                // Continue with your logic or processing here
+            });
+        });
         window.addEventListener('keyup', store.handleKeyup)
         return () => { //Always clean up your event listeners
             window.removeEventListener('keyup', store.handleKeyup)
