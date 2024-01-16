@@ -11,18 +11,6 @@ export default observer(function guess({ isGuessed, guess, word, exactGuesses, i
             event.preventDefault();
 
             // Continue with your logic or processing here
-
-            // Optionally, you can keep the cursor position within the text box
-            const cursorPosition = textbox.selectionStart;
-
-            // Scroll the text box into view without changing focus
-            textbox.scrollIntoView({
-                block: 'nearest',
-                inline: 'start',
-            });
-
-            // Restore the cursor position
-            textbox.setSelectionRange(cursorPosition, cursorPosition);
         });
     });
 
