@@ -4,6 +4,7 @@ import { observer, useLocalObservable } from 'mobx-react-lite'
 import Guess from '../../components/Guess';
 import Qwerty from '../../components/Qwerty';
 import PuzzleStore from '../stores/PuzzleStore';
+import CopyToClipboardButton from '../../components/CopyToClipboardButton';
 import { useEffect } from 'react';
 
 
@@ -12,23 +13,14 @@ export default observer(function Wordle() {
     const store = useLocalObservable(() => PuzzleStore)
     useEffect(() => {
         store.init()
-        const textboxes = document.querySelectorAll('input');
-
-        // Add an event listener to each text box
-        textboxes.forEach((textbox) => {
-            textbox.addEventListener('input', (event) => {
-                // Prevent the default behavior (auto-scrolling)
-                event.preventDefault();
-
-                // Continue with your logic or processing here
-            });
-        });
         window.addEventListener('keyup', store.handleKeyup)
         return () => { //Always clean up your event listeners
             window.removeEventListener('keyup', store.handleKeyup)
         }
     }, [store]);
     word_def += store.word;
+    var textToCopy = "test";
+
     return (
         <div className="flex flex-col">
             <div className="flex flex-row">
@@ -50,21 +42,18 @@ export default observer(function Wordle() {
                     {store.won && <h3 className="text-md lg:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-green-400">You Won!</h3>}
                     {store.lost && <h3 className="text-md lg:text-2xl font-bold text-red-600">You Lost <a href={word_def} rel="noopener noreferrer" target="_blank" className="text-md lg:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-green-400">{store.word} </a></h3>}
                     {(store.won || store.lost) && (
-                        <button onClick={store.init} className="btn bg-[#14213d] text-[#DAD7CD] hover:text-[#344E41] hover:border-[#588157] hover:border-2">Play Again</button>
+                        <div><button onClick={store.init} className="btn bg-[#14213d] text-[#DAD7CD] hover:text-[#8ac926] hover:border-[#8ac926] hover:border-2">Play Again</button><CopyToClipboardButton textToCopy={store.share_txt} /></div>
+
                     )}
-                    {(store.won || store.lost) && (store.guesses.map((_, i) => (
-                        <p className="text-sm" key={store.colors}>{store.colors[i]}</p>)
-                    ))}
-                    {(store.won) && (<p>{store.currentGuess}/6 Konordle</p>)}
-                    {(store.lost) && (<p>X/6 Konordle</p>)}
-                    {(store.won || store.lost) && (<br></br>) && (<p>https://bledowski.vercel.app/</p>)}
-                    {(!store.won && !store.lost) &&
-                        <Qwerty
-                            word={store.word}
-                            guess={store.guesses}
-                            currentGuess={store.currentGuess}
-                            exactGuesses={store.exactGuesses}
-                        />}
+                    {/* {(store.won || store.lost) && (store.guesses.map((_, i) => (
+                        <p className="text-sm" key={store.currentGuess}>{store.colors[i]}</p>)
+                    ))} */}
+                    <Qwerty
+                        word={store.word}
+                        guess={store.guesses}
+                        currentGuess={store.currentGuess}
+                        exactGuesses={store.exactGuesses}
+                    />
                 </div>
             </div>
             {/* DEBUG MENU
@@ -74,6 +63,6 @@ export default observer(function Wordle() {
             <p>in_exact_guesses: {JSON.stringify(store.inexactGuesses)}</p>
             <p>ALL_guesses: {JSON.stringify(store.allGuesses)}</p>
             <p>colors: {JSON.stringify(store.colors)}</p> */}
-        </div>
+        </div >
     )
 })

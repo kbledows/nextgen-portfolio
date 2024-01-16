@@ -39,9 +39,22 @@ export default {
       .filter((letter) => this.allGuesses.includes(letter))
   },
 
-  get share() {
-    return this.share_txt
+  share() {
+    var text = "";
+    for (let i = 0; i < this.colors.length; i++) {
+      text += this.colors[i];
+      text += "\n";
+    }
+    if (this.currentGuess === 6 && this.lost) {
+      text += ("X/6 Konordle https://bledowski.vercel.app/wordle")
+    }
+    else {
+      text += (this.currentGuess + "/6 Konordle https://bledowski.vercel.app/wordle")
+    }
+    this.share_txt = text;
+    return
   },
+
 
 
   init() {
@@ -58,6 +71,7 @@ export default {
       this.color(this.guesses[this.currentGuess]);
       console.log(this.guesses[this.currentGuess]);
       this.currentGuess += 1
+      this.share()
     }
   },
   handleKeyup(e) {

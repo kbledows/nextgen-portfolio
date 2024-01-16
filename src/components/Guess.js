@@ -1,20 +1,6 @@
 import { observer } from 'mobx-react-lite'
 
 export default observer(function guess({ isGuessed, guess, word, exactGuesses, inExactGuesses, currentGuess, guesses, currentWord }) {
-
-    const textboxes = document.querySelectorAll('input');
-
-    // Add an event listener to each text box
-    textboxes.forEach((textbox) => {
-        textbox.addEventListener('input', (event) => {
-            // Prevent the default behavior (auto-scrolling)
-            event.preventDefault();
-
-            // Continue with your logic or processing here
-        });
-    });
-
-
     function getExactGuesses() {
         let exacts = ""
         for (let i = 0; i < guess.length; i++) {
