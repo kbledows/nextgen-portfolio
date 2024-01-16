@@ -12,29 +12,6 @@ export default observer(function Wordle() {
     const store = useLocalObservable(() => PuzzleStore)
     useEffect(() => {
         store.init()
-        const textboxes = document.querySelectorAll('.your-textbox-class');
-
-        // Add an event listener to each text box
-        textboxes.forEach((textbox) => {
-            textbox.addEventListener('input', (event) => {
-                // Prevent the default behavior (auto-scrolling)
-                event.preventDefault();
-
-                // Continue with your logic or processing here
-
-                // Optionally, you can keep the cursor position within the text box
-                const cursorPosition = textbox.selectionStart;
-
-                // Scroll the text box into view without changing focus
-                textbox.scrollIntoView({
-                    block: 'nearest',
-                    inline: 'start',
-                });
-
-                // Restore the cursor position
-                textbox.setSelectionRange(cursorPosition, cursorPosition);
-            });
-        });
         window.addEventListener('keyup', store.handleKeyup)
         return () => { //Always clean up your event listeners
             window.removeEventListener('keyup', store.handleKeyup)
