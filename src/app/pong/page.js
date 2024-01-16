@@ -94,9 +94,9 @@ const Pong = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex-row content-center justify-between">
-                <button id="p1Btn" className="btn bg-[#780000] text-[#DAD7CD] hover:bg-[#c1121f] mx-0.5 md:mx-5 lg:mx-5">+1 Player One</button>
-                <button id="p2Btn" className="btn bg-[#003049] text-[#DAD7CD] hover:bg-[#0077b6] mx-0.5 md:mx-5 lg:mx-5">+2 Player One</button>
+            <div className="flex-row content-center justify-between my-2 lg:my-2">
+                <button id="p1Btn" className="btn text-xs p-2 lg:text-xl bg-[#780000] text-[#DAD7CD] hover:bg-[#c1121f] mx-0.5 md:mx-5 lg:mx-5">+1 Player One</button>
+                <button id="p2Btn" className="btn text-xs p-2 lg:text-xl bg-[#003049] text-[#DAD7CD] hover:bg-[#0077b6] mx-0.5 md:mx-5 lg:mx-5">+2 Player One</button>
             </div>
             <div className="hero bg-[#A3B18A] rounded-lg text-[#344E41] max-w-2xl">
                 <div className="hero-content flex-col lg:flex-row">

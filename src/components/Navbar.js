@@ -15,8 +15,8 @@ const Navbar = () => {
                     <li>
                         <Link href="/projects">Projects</Link>
                         <ul className="p-2">
-                            <li><Link href="/projects">SomeProject</Link></li>
-                            <li><Link href="/projects">SomeOtherProject</Link></li>
+                            <li><Link href="/wordle">Konordle</Link></li>
+                            <li><Link href="/pong">Ping Pong</Link></li>
                         </ul>
                     </li>
                     <li><Link href="/about">About</Link></li>

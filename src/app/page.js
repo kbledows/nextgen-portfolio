@@ -13,7 +13,6 @@ export default function Home() {
             <div>
               <h1 className="text-xl md:text-4xl lg:text-7xl font-bold lg:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Konrad Bledowski</h1>
               <p className="py-6">Hello 👋 my name is <span className='font-bold text-[#dad7cd] drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]'>Konrad</span> and welcome to my portfolio website! Please use the buttons at the top of the page to navigate my website, or simply scroll down. Thank you for visiting my website, and I hope you enjoy exploring my past projects and learning more about my skills and experience.</p>
-              <button className="btn bg-[#344E41] text-[#DAD7CD] hover:text-[#344E41] hover:border-[#588157] hover:border-2 hover:bg-[#dad7cd]">Get Started</button>
             </div>
           </div>
         </div>
