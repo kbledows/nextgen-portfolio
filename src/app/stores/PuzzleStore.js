@@ -1,6 +1,7 @@
 import words from '../wordle/words.json'
 import allowedwords from '../wordle/allowed_words.json'
 
+
 const date = new Date();
 let day = date.getDate();
 
@@ -67,7 +68,6 @@ export default {
   },
   submitGuess() {
     if (allowedwords.includes(this.guesses[this.currentGuess])) {
-      console.log("made it here");
       this.color(this.guesses[this.currentGuess]);
       console.log(this.guesses[this.currentGuess]);
       this.currentGuess += 1
@@ -75,6 +75,10 @@ export default {
     }
   },
   handleKeyup(e) {
+    if (this.time_left <= 0) {
+      this.init()
+      return
+    }
     if (this.won || this.lost) {
       return
     }

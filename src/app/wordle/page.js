@@ -5,27 +5,85 @@ import Guess from '../../components/Guess';
 import Qwerty from '../../components/Qwerty';
 import PuzzleStore from '../stores/PuzzleStore';
 import CopyToClipboardButton from '../../components/CopyToClipboardButton';
-import { useEffect } from 'react';
+import HardModeTimer from '../../components/HardModeTimer';
+
+import { useState, useEffect } from 'react';
 
 
 export default observer(function Wordle() {
+    const [hardMode, setHardMode] = useState(false);
+    const [started, setStarted] = useState(false);
+    const [given_time, setTime] = useState(90);
+    let final_time = 0;
     let word_def = "https://www.dictionary.com/browse/";
     const store = useLocalObservable(() => PuzzleStore)
+    function changeHard() {
+        setHardMode((prevHardMode) => !prevHardMode);
+        // console.log(hardMode);
+    }
+    const changeStart = () => {
+        setStarted(true);
+        // console.log(started);
+    };
     useEffect(() => {
         store.init()
         window.addEventListener('keyup', store.handleKeyup)
+        document.getElementById('my_modal_1').showModal();
         return () => { //Always clean up your event listeners
             window.removeEventListener('keyup', store.handleKeyup)
         }
     }, [store]);
+    const updateTime = (newValue) => {
+        if (newValue <= 0) {
+            final_time = newValue;
+            setTime(90);
+            changeHard();
+            document.getElementById('my_modal_2').showModal();
+        }
+    };
     word_def += store.word;
-    var textToCopy = "test";
 
     return (
         <div className="flex flex-col">
+            <dialog id="my_modal_1" className="modal">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg">Hello!</h3>
+                    <p className="py-4">Welcome to Konordle. To play simply enter any 5 letter word to attempt a guess at todays mystery word.</p>
+                    <p><span className="text-[#ffc300] font-bold">Green</span> letters = the letter exists in the mystery word. </p>
+                    <p><span className="text-[#588157] font-bold">Yellow</span> letters = the letter is in the correct spot. </p>
+                    <p><span className="text-[#dee2e6] font-bold">Gray</span> letters = the letter does not exist in todays mystery word.</p>
+                    <p className="py-3">To enable <span className="text-[#dc2f02] font-bold">HARD MODE</span>, click the toggle below!</p>
+                    <p>Press ESC key or click the button below to close</p>
+                    <div className="modal-action">
+                        <form method="dialog">
+                            <input type="checkbox" id="other" className="toggle mr-5" onChange={changeHard} />
+                            {/* if there is a button in form, it will close the modal */}
+                            <button onClick={changeStart} className="btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+            <dialog id="my_modal_2" className="modal">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg"><span className="text-[#dc2f02] font-bold">You lost!</span></h3>
+                    <p className="py-4">You ran out of time!</p>
+                    <p>Press ESC key or click the button below to play again!</p>
+                    <div className="modal-action">
+                        <form method="dialog">
+                            <input type="checkbox" className="toggle mr-5" onChange={changeHard} />
+                            {/* if there is a button in form, it will close the modal */}
+                            <button onClick={store.init} className="btn">Play again</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
             <div className="flex flex-row">
                 <div className="flex flex-col bg-[#344E41] h-screen w-screen items-center justify-center">
                     <h1 className="text-5xl lg:text-6xl font-bold uppercase text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-green-400">Konordle</h1>
+                    <HardModeTimer showTimer={hardMode}
+                        time_left={given_time}
+                        updateTime={updateTime}
+                        started={started} />
                     {store.guesses.map((_, i) => (
                         <Guess
                             key={i}

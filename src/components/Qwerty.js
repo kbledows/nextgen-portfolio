@@ -1,15 +1,8 @@
 import { observer } from 'mobx-react-lite'
-import { useEffect } from 'react';
 import Link from 'next/link';
 
 export default observer(function Qwerty({ currentGuess, guess, word, exactGuesses }) {
-    useEffect(() => {
-        const element = document.querySelector('h1');
-        element.addEventListener("click", () => {
-            console.log("clicked element");
-        });
 
-    }, [])
     const rowOne = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
     const rowTwo = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
     const rowThree = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];

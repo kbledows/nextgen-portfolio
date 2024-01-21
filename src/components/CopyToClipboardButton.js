@@ -5,7 +5,7 @@ const CopyToClipboardButton = ({ textToCopy }) => {
     const handleCopyClick = () => {
         navigator.clipboard.writeText(textToCopy)
             .then(() => {
-                alert('Text copied to clipboard!');
+                alert('Your score has been copied to the clipboard!');
             })
             .catch((err) => {
                 console.error('Unable to copy text to clipboard', err);

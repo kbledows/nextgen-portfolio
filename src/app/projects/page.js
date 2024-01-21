@@ -30,8 +30,8 @@ const Projects = () => {
                     <Image src={pong} className="w-48 md:w-72 lg:w-82 rounded-lg" />
                     <div>
                         <h2 className="text-xl md:text-3xl lg:text-5xl font-bold">Ping Pong Score Keeper</h2>
-                        <p className="text-lg py-6">Please enjoy a game of Konordle ! I am an avid fan of video games, and an obsession with the famous Wordle has led me to create my own version. Play it by clicking the button below! </p>
-                        <Link href="/wordle"><button className="btn bg-[#344E41] text-[#DAD7CD] hover:text-[#344E41] hover:border-[#588157] hover:border-2 hover:bg-[#dad7cd]">Konordle</button></Link>
+                        <p className="text-lg py-6">In order to keep track of the score in ping pong, I created this useful tool. Simply use the buttons to increment each players score.</p>
+                        <Link href="/pong"><button className="btn bg-[#344E41] text-[#DAD7CD] hover:text-[#344E41] hover:border-[#588157] hover:border-2 hover:bg-[#dad7cd]">Ping Pong</button></Link>
                     </div>
                 </div>
             </div>
@@ -39,5 +39,6 @@ const Projects = () => {
 
     )
 }
+
 
 export default Projects;
