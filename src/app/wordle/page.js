@@ -57,8 +57,8 @@ export default observer(function Wordle() {
 
     return (
         <div className="flex flex-col">
-            <dialog id="my_modal_1" className="modal">
-                <div className="modal-box">
+            <dialog id="my_modal_1" className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box bg-[#0d1b2a]">
                     <h3 className="font-bold text-lg">Hello!</h3>
                     <p className="py-4">Welcome to Konordle. To play simply enter any 5 letter word to attempt a guess at todays mystery word.</p>
                     <p><span className="text-[#ffc300] font-bold">Green</span> letters = the letter exists in the mystery word. </p>
@@ -75,8 +75,8 @@ export default observer(function Wordle() {
                     </div>
                 </div>
             </dialog>
-            <dialog id="my_modal_2" className="modal">
-                <div className="modal-box">
+            <dialog id="my_modal_2" className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box bg-[#0d1b2a]">
                     <h3 className="font-bold text-lg"><span className="text-[#dc2f02] font-bold">You LOST!</span></h3>
                     {(final_time <= 0) && <p className="py-4">You ran out of time!</p>}
                     <p>Press ESC key or click the button below to play again!</p>
@@ -89,8 +89,8 @@ export default observer(function Wordle() {
                     </div>
                 </div>
             </dialog>
-            <dialog id="my_modal_3" className="modal">
-                <div className="modal-box">
+            <dialog id="my_modal_3" className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box bg-[#0d1b2a]">
                     <h3 className="text-md lg:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-green-400">You Won!</h3>
                     <p className="py-4">Congratulations!</p>
                     <p>Press ESC key or click the button below to play again!</p>
