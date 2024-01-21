@@ -47,6 +47,8 @@ export default observer(function Wordle() {
             final_time = newValue;
             setTime(90);
             changeHard();
+            alert("You lose!");
+            reset();
         }
     };
     word_def += store.word;

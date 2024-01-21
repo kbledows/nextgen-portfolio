@@ -52,7 +52,7 @@ export default {
       text += ("X/6 Konordle https://bledowski.vercel.app/wordle")
     }
     else {
-      text += (this.currentGuess + "/6 Konordle https://bledowski.vercel.app/wordle")
+      text += (this.currentGuess + "/6 Konordle #" + day.toString())
     }
     this.share_txt = text;
     return
@@ -139,37 +139,6 @@ export default {
         word_colors += color;
         continue;
       }
-      // else if (this.word.includes(currentWord[i])) {
-      //   let exacts = ""
-      //   for (let i = 0; i < currentWord.length; i++) {
-      //     if (currentWord[i] == this.word[i]) {
-      //       exacts += currentWord[i]
-      //     }
-      //   }
-      //   if (exacts.includes(currentWord[i])) {
-      //     if (((exacts.split(currentWord[i])).length - 1) < ((this.word.split(currentWord[i])).length - 1)) { //not all i have been found
-      //       if (((currentWord.split(currentWord[i])).length - 1) < ((this.word.split(currentWord[i])).length - 1)) {
-      //         let num_left = (((this.word.split(currentWord[i])).length - 1) - (currentWord.split(currentWord[i])).length - 1);
-      //         if (i == this.findNthIndexOfCharacter(currentWord, currentWord[i], num_left)) {
-      //           if (color != "green") {
-      //             let color = "yellow";
-      //           }
-      //         }
-      //       }
-      //     }
-      //   }
-      //   if (((currentWord.split(currentWord[i])).length - 1) < ((this.word.split(currentWord[i])).length - 1)) {
-      //     let num_left = (((this.word.split(currentWord[i])).length - 1) - (currentWord.split(currentWord[i])).length - 1);
-      //     if (i == this.findNthIndexOfCharacter(currentWord, currentWord[i], num_left)) {
-      //       if (color != "green") {
-      //         let color = "yellow";
-      //       }
-      //     }
-      //     if (color != "green") {
-      //       let color = "yellow";
-      //     }
-      //   }
-      // }
       if (color != "🟩") {
         word_colors += color;
       }
