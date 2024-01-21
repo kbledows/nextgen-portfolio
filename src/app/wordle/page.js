@@ -14,7 +14,7 @@ export default observer(function Wordle() {
     const [hardMode, setHardMode] = useState(false);
     const [started, setStarted] = useState(false);
     const [given_time, setTime] = useState(90);
-    let final_time = 0;
+    let final_time = given_time;
     let word_def = "https://www.dictionary.com/browse/";
     const store = useLocalObservable(() => PuzzleStore)
     function changeHard() {
@@ -25,6 +25,18 @@ export default observer(function Wordle() {
         setStarted(true);
         // console.log(started);
     };
+    function hideTimer() {
+        if (store.won) {
+            setHardMode(false);
+            document.getElementById('my_modal_3').showModal();
+            store.init();
+        }
+        else if (store.lost) {
+            setHardMode(false);
+            document.getElementById('my_modal_2').showModal();
+            store.init();
+        }
+    }
     useEffect(() => {
         store.init()
         window.addEventListener('keyup', store.handleKeyup)
@@ -65,8 +77,8 @@ export default observer(function Wordle() {
             </dialog>
             <dialog id="my_modal_2" className="modal">
                 <div className="modal-box">
-                    <h3 className="font-bold text-lg"><span className="text-[#dc2f02] font-bold">You lost!</span></h3>
-                    <p className="py-4">You ran out of time!</p>
+                    <h3 className="font-bold text-lg"><span className="text-[#dc2f02] font-bold">You LOST!</span></h3>
+                    {(final_time <= 0) && <p className="py-4">You ran out of time!</p>}
                     <p>Press ESC key or click the button below to play again!</p>
                     <div className="modal-action">
                         <form method="dialog">
@@ -77,13 +89,29 @@ export default observer(function Wordle() {
                     </div>
                 </div>
             </dialog>
+            <dialog id="my_modal_3" className="modal">
+                <div className="modal-box">
+                    <h3 className="text-md lg:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-green-400">You Won!</h3>
+                    <p className="py-4">Congratulations!</p>
+                    <p>Press ESC key or click the button below to play again!</p>
+                    <div className="modal-action">
+                        <form method="dialog">
+                            <input type="checkbox" className="toggle mr-5" onChange={changeHard} />
+                            {/* if there is a button in form, it will close the modal */}
+                            <button onClick={store.init} className="btn">Play again</button>
+                        </form>
+                        <CopyToClipboardButton textToCopy={store.share_txt} />
+                    </div>
+                </div>
+            </dialog>
             <div className="flex flex-row">
                 <div className="flex flex-col bg-[#344E41] h-screen w-screen items-center justify-center">
                     <h1 className="text-5xl lg:text-6xl font-bold uppercase text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-green-400">Konordle</h1>
                     <HardModeTimer showTimer={hardMode}
                         time_left={given_time}
                         updateTime={updateTime}
-                        started={started} />
+                        started={started}
+                        hideTimer={hideTimer} />
                     {store.guesses.map((_, i) => (
                         <Guess
                             key={i}

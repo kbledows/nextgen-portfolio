@@ -11,6 +11,8 @@ export default {
   currentGuess: 0, //current guess
   share_txt: '',
   colors: [],
+  won: false,
+  lost: false,
 
   get won() {
     return this.guesses[this.currentGuess - 1] === this.word

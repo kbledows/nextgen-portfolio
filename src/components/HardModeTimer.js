@@ -1,7 +1,7 @@
 // HardModeTimer.js
 import React, { useEffect, useState } from 'react';
 
-const HardModeTimer = ({ showTimer, time_left, updateTime, started }) => {
+const HardModeTimer = ({ showTimer, time_left, updateTime, started, hideTimer }) => {
     const [counter, setCounter] = useState(time_left);
 
     useEffect(() => {
@@ -11,6 +11,7 @@ const HardModeTimer = ({ showTimer, time_left, updateTime, started }) => {
             interval = setInterval(() => {
                 setCounter(prevCounter => {
                     if (prevCounter > 0) {
+                        hideTimer();
                         return prevCounter - 1;
                     } else {
                         updateTime(prevCounter);
