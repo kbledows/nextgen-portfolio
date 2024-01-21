@@ -26,16 +26,13 @@ export default observer(function Wordle() {
         // console.log(started);
     };
     function hideTimer() {
-        if (store.won) {
+        if (store.won || store.lost) {
             setHardMode(false);
-            document.getElementById('my_modal_3').showModal();
-            store.init();
         }
-        else if (store.lost) {
-            setHardMode(false);
-            document.getElementById('my_modal_2').showModal();
-            store.init();
-        }
+    }
+    function reset() {
+        document.getElementById('my_modal_1').showModal();
+        store.init();
     }
     useEffect(() => {
         store.init()
@@ -50,7 +47,6 @@ export default observer(function Wordle() {
             final_time = newValue;
             setTime(90);
             changeHard();
-            document.getElementById('my_modal_2').showModal();
         }
     };
     word_def += store.word;
@@ -72,35 +68,6 @@ export default observer(function Wordle() {
                             {/* if there is a button in form, it will close the modal */}
                             <button onClick={changeStart} className="btn">Close</button>
                         </form>
-                    </div>
-                </div>
-            </dialog>
-            <dialog id="my_modal_2" className="modal modal-bottom sm:modal-middle">
-                <div className="modal-box bg-[#0d1b2a]">
-                    <h3 className="font-bold text-lg"><span className="text-[#dc2f02] font-bold">You LOST!</span></h3>
-                    {(final_time <= 0) && <p className="py-4">You ran out of time!</p>}
-                    <p>Press ESC key or click the button below to play again!</p>
-                    <div className="modal-action">
-                        <form method="dialog">
-                            <input type="checkbox" className="toggle mr-5" onChange={changeHard} />
-                            {/* if there is a button in form, it will close the modal */}
-                            <button onClick={store.init} className="btn">Play again</button>
-                        </form>
-                    </div>
-                </div>
-            </dialog>
-            <dialog id="my_modal_3" className="modal modal-bottom sm:modal-middle">
-                <div className="modal-box bg-[#0d1b2a]">
-                    <h3 className="text-md lg:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-green-400">You Won!</h3>
-                    <p className="py-4">Congratulations!</p>
-                    <p>Press ESC key or click the button below to play again!</p>
-                    <div className="modal-action">
-                        <form method="dialog">
-                            <input type="checkbox" className="toggle mr-5" onChange={changeHard} />
-                            {/* if there is a button in form, it will close the modal */}
-                            <button onClick={store.init} className="btn">Play again</button>
-                        </form>
-                        <CopyToClipboardButton textToCopy={store.share_txt} />
                     </div>
                 </div>
             </dialog>
@@ -128,7 +95,7 @@ export default observer(function Wordle() {
                     {store.won && <h3 className="text-md lg:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-green-400">You Won!</h3>}
                     {store.lost && <h3 className="text-md lg:text-2xl font-bold text-red-600">You Lost <a href={word_def} rel="noopener noreferrer" target="_blank" className="text-md lg:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-green-400">{store.word} </a></h3>}
                     {(store.won || store.lost) && (
-                        <div><button onClick={store.init} className="btn bg-[#14213d] text-[#DAD7CD] hover:text-[#8ac926] hover:border-[#8ac926] hover:border-2">Play Again</button><CopyToClipboardButton textToCopy={store.share_txt} /></div>
+                        <div><button onClick={reset} className="btn bg-[#14213d] text-[#DAD7CD] hover:text-[#8ac926] hover:border-[#8ac926] hover:border-2">Play Again</button><CopyToClipboardButton textToCopy={store.share_txt} /></div>
 
                     )}
                     {/* {(store.won || store.lost) && (store.guesses.map((_, i) => (
