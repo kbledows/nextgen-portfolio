@@ -17,6 +17,7 @@ const About = () => {
                     </div>
                 </div>
             </div>
+
         </div>
     )
 }

@@ -3,7 +3,11 @@ import allowedwords from '../wordle/allowed_words.json'
 
 
 const date = new Date();
-let day = date.getDate();
+let ogDate = new Date("01/01/2024");
+let numDays = date - ogDate;
+let Difference_In_Days =
+  Math.round
+    (numDays / (1000 * 3600 * 24));
 
 export default {
   word: '', //guessing word
@@ -52,7 +56,7 @@ export default {
       text += ("X/6 Konordle https://bledowski.vercel.app/wordle")
     }
     else {
-      text += (this.currentGuess + "/6 Konordle #" + day.toString())
+      text += (this.currentGuess + "/6 Konordle #" + Difference_In_Days.toString())
     }
     this.share_txt = text;
     return
@@ -61,7 +65,7 @@ export default {
 
 
   init() {
-    this.word = words[day] //single word based on day
+    this.word = words[Difference_In_Days] //single word based on day
     // this.word = words[Math.round(Math.random() * words.length)] //random words
     this.guesses.replace(new Array(6).fill(''))
     this.currentGuess = 0

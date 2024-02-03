@@ -21,14 +21,8 @@ const Pong = () => {
         p1Button.addEventListener("click", function () {
             p1Score += 1;
             if ((p1Score + p2Score) % 2 === 0) {
-                if (serve === 0) {
-                    serve_display.textContent = "Player 1";
-                    serve += 1;
-                }
-                else {
-                    serve_display.textContent = "Player 2";
-                    serve -= 1;
-                }
+                serve = 1 - serve; // Switch sides every 2 points
+                serve_display.textContent = serve === 0 ? "Player 1" : "Player 2";
             }
             p1Display.textContent = p1Score
             if (p1Score >= 11) {
@@ -46,16 +40,10 @@ const Pong = () => {
         p2Button.addEventListener("click", function () {
             p2Score += 1;
             if ((p1Score + p2Score) % 2 === 0) {
-                if (serve === 0) {
-                    serve_display.textContent = "Player 1";
-                    serve += 1;
-                }
-                else {
-                    serve_display.textContent = "Player 2";
-                    serve -= 1;
-                }
+                serve = 1 - serve; // Switch sides every 2 points
+                serve_display.textContent = serve === 0 ? "Player 1" : "Player 2";
             }
-            p2Display.textContent = p2Score
+            p2Display.textContent = p2Score;
             if (p2Score >= 11) {
                 if (p2Score - p1Score >= 2) {
                     p1Score = 0;
