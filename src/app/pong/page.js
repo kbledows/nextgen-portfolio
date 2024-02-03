@@ -22,6 +22,7 @@ const Pong = () => {
             p1Score += 1;
             if ((p1Score + p2Score) % 2 === 0) {
                 serve = 1 - serve; // Switch sides every 2 points
+                updateServeDisplay();
                 serve_display.textContent = serve === 0 ? "Player 1" : "Player 2";
             }
             p1Display.textContent = p1Score
@@ -41,6 +42,7 @@ const Pong = () => {
             p2Score += 1;
             if ((p1Score + p2Score) % 2 === 0) {
                 serve = 1 - serve; // Switch sides every 2 points
+                updateServeDisplay();
                 serve_display.textContent = serve === 0 ? "Player 1" : "Player 2";
             }
             p2Display.textContent = p2Score;
@@ -67,6 +69,13 @@ const Pong = () => {
         })
 
     })
+
+    function updateServeDisplay() {
+        let serve_display = document.querySelector("#serve_display")
+        serve_display.textContent = serve === 0 ? "Player 1" : "Player 2";
+        serve_display.style.color = serve === 0 ? "#780000" : "#003049"; // Red for Player 1, Blue for Player 2
+    }
+
     return (
         <div className="flex min-h-screen flex-col items-center justify-between pt-20 px-12 lg:p-24 bg-[#344E41]">
             <div className="hero bg-[#A3B18A] rounded-lg text-[#344E41] lg:max-w-3xl">
@@ -75,7 +84,7 @@ const Pong = () => {
                     <div>
                         <h2 className="text-xl md:text-3xl lg:text-5xl font-bold">Ping Pong Score Keeper</h2>
                         <h3 className="text-3xl my-4 font-bold"><span className="text-[#780000]" id="p1Score">{p1Score}</span> to <span className="text-[#003049]" id="p2Score">{p2Score}</span></h3>
-                        <h3 className="text-xl mb-2 font-bold text-slate-700">Serving: <span id="serve_display" className="text-[#780000]">Player 1</span></h3>
+                        <h3 className="text-xl mb-2 font-bold text-700">Serving: <span id="serve_display" className="text-[#780000]">Player 1</span></h3>
                         <div>
                             <button id="resetBtn" className="btn bg-[#344E41] text-[#DAD7CD] hover:text-[#344E41] hover:border-[#588157] hover:bg-[#dad7cd]">Reset Score</button>
                         </div>
