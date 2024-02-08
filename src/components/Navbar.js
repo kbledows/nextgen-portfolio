@@ -24,13 +24,13 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="flex-1">
-                <Link className="btn btn-ghost normal-case text-xl hover:bg-[#3A5A40] focus:bg-[#588157]" href="/">Home</Link>
+                <Link className="btn btn-ghost normal-case text-xl hover:bg-[#3A5A40] focus:bg-[#588157] transform transition duration-500 hover:scale-110 hover:text-[#00f5d4]" href="/">Home</Link>
             </div>
             <div className="flex-none hidden md:flex">
-                <Link className="btn btn-ghost normal-case text-xl hover:bg-[#3A5A40] focus:bg-[#588157]" href="/projects">Projects</Link>
-                <Link className="btn btn-ghost normal-case text-xl hover:bg-[#3A5A40] focus:bg-[#588157]" href="/skills">Skills</Link>
-                <Link className="btn btn-ghost normal-case text-xl hover:bg-[#3A5A40] focus:bg-[#588157]" href="/about">About</Link>
-                <Link className="btn btn-ghost normal-case text-xl hover:bg-[#3A5A40] focus:bg-[#588157]" href="/contact">Contact</Link>
+                <Link className="btn btn-ghost normal-case text-xl hover:bg-[#3A5A40] focus:bg-[#588157] transform transition duration-500 hover:scale-110 hover:text-[#00f5d4]" href="/projects">Projects</Link>
+                <Link className="btn btn-ghost normal-case text-xl hover:bg-[#3A5A40] focus:bg-[#588157] transform transition duration-500 hover:scale-110 hover:text-[#00f5d4]" href="/skills">Skills</Link>
+                <Link className="btn btn-ghost normal-case text-xl hover:bg-[#3A5A40] focus:bg-[#588157] transform transition duration-500 hover:scale-110 hover:text-[#00f5d4]" href="/about">About</Link>
+                <Link className="btn btn-ghost normal-case text-xl hover:bg-[#3A5A40] focus:bg-[#588157] transform transition duration-500 hover:scale-110 hover:text-[#00f5d4]" href="/contact">Contact</Link>
             </div>
         </div>
     )
