@@ -94,7 +94,7 @@ const About = () => {
                             </li>
                         </ul>
                         <h3 className="text-lg md:text-xl lg:text-xl font-bold text-center text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mt-7" >Timeline Summary</h3>
-                        <p className="mt-5 text-center font-semibold">Welcome to my journey timeline! Here, you'll find a chronological record of significant milestones and achievements in my life. From graduating college to landing my dream software job, each entry represents a pivotal moment in my personal and professional development. As you explore this timeline, you'll gain insights into the experiences that have shaped who I am today. Enjoy the journey through my milestones!</p>
+                        <p className="mt-5 text-center font-semibold">Welcome to my journey timeline! Here, youll find a chronological record of significant milestones and achievements in my life. From graduating college to landing my dream software job, each entry represents a pivotal moment in my personal and professional development. As you explore this timeline, youll gain insights into the experiences that have shaped who I am today. Enjoy the journey through my milestones!</p>
                     </div>
                 </div>
             </div>

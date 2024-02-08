@@ -22,7 +22,7 @@ const Projects = () => {
                     <Image src={konordle} className="w-48 md:w-72 lg:w-82 rounded-lg" />
                     <div>
                         <h2 className="text-xl md:text-3xl lg:text-5xl font-bold">Konordle</h2>
-                        <p className="text-lg py-6">Please enjoy a game of Konordle ! A fun take on the massively popular 'Wordle'. <span className='text-[#780000] font-bold italic'> Now with hard mode! </span>Play by clicking the button below! </p>
+                        <p className="text-lg py-6">Please enjoy a game of Konordle ! A fun take on the massively popular Wordle. <span className='text-[#780000] font-bold italic'> Now with hard mode! </span>Play by clicking the button below! </p>
                         <Link href="/wordle"><button className="btn bg-[#344E41] text-[#DAD7CD] hover:text-[#344E41] hover:border-[#588157] hover:border-2 hover:bg-[#dad7cd]">Konordle</button></Link>
                     </div>
                 </div>
