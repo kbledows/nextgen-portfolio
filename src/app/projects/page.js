@@ -3,7 +3,6 @@ import Navbar from '@/components/Navbar';
 import Image from 'next/image';
 import konordle from 'public/konordle.png'
 import pong from 'public/pong.avif'
-import tree from 'public/pixel_tree.webp'
 
 const Projects = () => {
     return (
