@@ -21,32 +21,6 @@ const About = () => {
                 <div className="hero-content flex-col lg:flex-row">
                     <div>
                         <h2 className="text-xl md:text-3xl lg:text-5xl font-bold text-center text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">My Personal Timeline</h2>
-                        {/* <div className='flex flex-col justify-between space-y-5 mt-5 text-white'>
-                            <div tabIndex={0} className="collapse bg-[#344E41] text-primary-content focus:bg-[#582f0e] focus:text-secondary-content lg:px-72 text-center">
-                                <div className="collapse-title">
-                                    Click to learn about my education history
-                                </div>
-                                <div className="collapse-content">
-                                    <p>tabIndex={0} attribute is necessary to make the div focusable</p>
-                                </div>
-                            </div>
-                            <div tabIndex={0} className="collapse bg-[#344E41] text-primary-content focus:bg-[#582f0e] focus:text-secondary-content lg:px-72 text-center">
-                                <div className="collapse-title">
-                                    Focus me to see content
-                                </div>
-                                <div className="collapse-content">
-                                    <p>tabIndex={0} attribute is necessary to make the div focusable</p>
-                                </div>
-                            </div>
-                            <div tabIndex={0} className="collapse bg-[#344E41] text-primary-content focus:bg-[#582f0e] focus:text-secondary-content lg:px-72 text-center">
-                                <div className="collapse-title">
-                                    Focus me to see content
-                                </div>
-                                <div className="collapse-content">
-                                    <p>tabIndex={0} attribute is necessary to make the div focusable</p>
-                                </div>
-                            </div>
-                        </div> */}
                         <ul className="mt-10 timeline text-xs timeline-vertical justify-center lg:text-lg lg:timeline-horizontal lg:mt-1">
                             <li>
                                 <div className="timeline-start lg:text-2xl font-bold text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">2018</div>
@@ -91,7 +65,7 @@ const About = () => {
                             </li>
                         </ul>
                         <h3 className="text-lg md:text-xl lg:text-xl font-bold text-center text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mt-7" >Timeline Summary</h3>
-                        <p className="mt-5 text-center font-semibold">Welcome to my journey timeline! Here, youll find a chronological record of significant milestones and achievements in my life. From graduating college to landing my dream software job, each entry represents a pivotal moment in my personal and professional development. As you explore this timeline, youll gain insights into the experiences that have shaped who I am today. Enjoy the journey through my milestones!</p>
+                        <p className="mt-5 text-center font-semibold">Welcome to my journey timeline! Here, youll find a chronological record of significant milestones and achievements in my life. From graduating college to landing my dream software job, each entry represents a pivotal moment in my personal and professional development.</p>
                     </div>
                 </div>
             </div>
