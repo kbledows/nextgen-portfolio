@@ -17,7 +17,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="hero bg-[#A3B18A] rounded-lg text-[#344E41] mt-7 max-w-7xl">
+        <div className="hero bg-[#A3B18A] rounded-lg text-[#344E41] mt-10 max-w-7xl">
           <div className="hero-content flex-col lg:flex-row-reverse">
             <Image src={art} className="w-fill md:w-72 lg:w-82 rounded-lg" />
             <div>

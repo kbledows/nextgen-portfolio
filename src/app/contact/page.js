@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const Contact = () => {
     return (
-        <div className="flex px-4 min-h-screen flex-col items-center pt-20 px-12 bg-[#344E41]">
+        <div className="flex px-4 min-h-screen flex-col items-center justify-center px-12 bg-[#344E41]">
             <div className="hero bg-[#A3B18A] rounded-lg text-[#344E41] max-w-7xl">
                 <div className="hero-content flex-col lg:flex-row">
                     <Image src={connect} className="w-fill md:w-72 lg:w-80 rounded-lg" />

@@ -6,7 +6,7 @@ import pong from 'public/pong.avif'
 
 const Projects = () => {
     return (
-        <div className="flex px-4 min-h-screen flex-col items-center justify-between pt-20 lg:px-12 bg-[#344E41]">
+        <div className="flex px-4 min-h-screen flex-col items-center justify-center pt-20 lg:px-12 bg-[#344E41]">
             <div className="hero bg-[#A3B18A] rounded-lg text-[#344E41] max-w-4xl mb-6">
                 <div className="hero-content flex-col lg:flex-row">
                     <div>
