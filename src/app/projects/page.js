@@ -27,12 +27,13 @@ const Projects = () => {
             </div>
             <div className="hero bg-[#A3B18A] rounded-lg text-[#344E41] max-w-7xl mb-6">
                 <div className="hero-content flex-col lg:flex-row">
-                    <Image src={pong} className="w-fill md:w-72 lg:w-82 rounded-lg" />
+
                     <div>
                         <h2 className="text-xl md:text-3xl lg:text-5xl font-bold">Ping Pong Score Keeper</h2>
                         <p className="text-lg py-6">In order to keep track of the score in ping pong, I created this useful tool. Simply use the buttons to increment each players score.</p>
                         <Link href="/pong"><button className="btn bg-[#344E41] text-[#DAD7CD] hover:text-[#344E41] hover:border-[#588157] hover:border-2 hover:bg-[#dad7cd]">Ping Pong</button></Link>
                     </div>
+                    <Image src={pong} className="w-fill md:w-72 lg:w-96 rounded-lg" />
                 </div>
             </div>
         </div >
